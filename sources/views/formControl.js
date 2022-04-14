@@ -1,6 +1,6 @@
 const formControl = {
     view: "formControl",
-    id: "formControl",
+    id: "form-сontrol",
     fields: ["one", "two"],
     width: 600,
 };

@@ -2,18 +2,37 @@ const protoFormControl = () => {
     webix.protoUI({
         name: "formControl",
         defaults: {
-            onCancel: () => console.log('cancel'),
-            onSave: function() {
-                console.log($$(this.id).getValues());
+            onCancel: function() {
+                webix.confirm({
+                    title: "Clear fields?",
+                    text: "Do you still want to clear all fields?",
+                  }).then(
+                      function() {
+                        $$(this.id).clear();
+                      },
+                  );
             },
-        },
-        getValues: function() {
-            const values = webix.ui.form.prototype.getValues.apply(this); 
+            onSave: function() {
+                const formControl = $$(this.id);
+                const values = formControl.getValues();
 
-            return values;
+                const generateMessage = (obj) => {
+                    const message = [];
+                    for(let key in obj) {
+                        message.push(`${key} is ${obj[key]}`);
+                    }
+                    return message.join('; ');
+                }
+
+                webix.message(formControl.isDirty() ? generateMessage(values) : 'Form is empty...');
+                formControl.clear();
+            },
         },
         $init: function(config) {
             const { fields } = config;
+
+            if( !fields ) return;
+
             const formFields = fields.map( el => (
                 {
                     view: "text",

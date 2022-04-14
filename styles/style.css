@@ -2,22 +2,22 @@ body {
     background-color: rgb(255, 255, 255);
 }
 
-.webix_el_mybutton .webix_button {
+.webix_el_sort-button .webix_button {
     border-radius: 5px;
     color: black;
 }
 
-.sort_off .webix_button,
-.sort_off .webix_button:hover {
+.sort-button--sort_off .webix_button,
+.sort-button--sort_off .webix_button:hover {
     background-color: rgb(176, 220, 176);
 }
 
-.sort_asc .webix_button,
-.sort_asc .webix_button:hover {
+.sort-button--sort_asc .webix_button,
+.sort-button--sort_asc .webix_button:hover {
     background-color: rgb(190, 152, 152);
 }
 
-.sort_desc .webix_button,
-.sort_desc .webix_button:hover {
+.sort-button--sort_desc .webix_button,
+.sort-button--sort_desc .webix_button:hover {
     background-color: rgb(228, 228, 183);
 }

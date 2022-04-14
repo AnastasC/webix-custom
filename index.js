@@ -1,10 +1,10 @@
-import list from "./sources/views/list.js";
-import toolbar from "./sources/views/toolbal.js";
-import protoMybutton from "./sources/protos/protoMybutton.js";
+import list from "./sources/views/filmsList.js";
+import toolbar from "./sources/views/filmsToolbar.js";
+import protoSortButton from "./sources/protos/protoSortButton.js";
 import formControl from "./sources/views/formControl.js";
 import protoFormControl from "./sources/protos/protoFormControl.js";
 
-protoMybutton();
+protoSortButton();
 protoFormControl();
 
 webix.ui({
