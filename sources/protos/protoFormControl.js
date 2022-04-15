@@ -15,16 +15,9 @@ const protoFormControl = () => {
             onSave: function() {
                 const formControl = $$(this.id);
                 const values = formControl.getValues();
-
-                const generateMessage = (obj) => {
-                    const message = [];
-                    for(let key in obj) {
-                        message.push(`${key} is ${obj[key]}`);
-                    }
-                    return message.join('; ');
-                }
-
-                webix.message(formControl.isDirty() ? generateMessage(values) : 'Form is empty...');
+                const message = Object.entries(values).map( el => `${el[0]} is ${el[1]}`).join('; ');
+               
+                webix.message(formControl.isDirty() ? message : 'Form is empty...');
                 formControl.clear();
             },
         },
