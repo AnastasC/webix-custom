@@ -3,9 +3,11 @@ const protoSortButton = () => {
     name: "sortButton",
     $init: function(config) {
         const styles = ["sort-button--sort_off", "sort-button--sort_asc", "sort-button--sort_desc"];
-        let { state, states } = config;
+        let { state = 0, states } = config;
 
-        if( !state && !states ) return;
+        webix.html.addCss(this.getNode(), styles[state]);
+
+        if( !states ) return;
 
         this.attachEvent("onItemClick", () => {
             webix.html.removeCss(this.getNode(), styles[state]);

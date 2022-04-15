@@ -68,7 +68,7 @@ const protoFormControl = () => {
                     ]
                 },
             ];
-            this.define("elements", formElements);
+            this.config.elements = formElements;
         },
     }, webix.ui.form );
 };

@@ -1,3 +1,5 @@
+import sortList from "../utils/sortList.js";
+
 const list = {
     view: "list",
     id: "films_list",
@@ -6,6 +8,11 @@ const list = {
         height: 70,
     },
     url: "./datas/dashboard.js",
+    ready: () => {
+        const state = $$("sort-button").config.state;
+
+        sortList(state);
+    },
 };
 
 export default list;

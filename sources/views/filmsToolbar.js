@@ -1,3 +1,5 @@
+import sortList from "../utils/sortList.js";
+
 const toolbar = {
     view: "toolbar",
     id: "films_toolbar",
@@ -20,13 +22,7 @@ const toolbar = {
             width: 150,
             label: "Off",
             on: {
-                onStateChange: (state) => {
-                    const list = $$("films_list");
-
-                    if( state === 0 ) list.sort("id", "asc");
-                    if( state === 1 ) list.sort("title", "asc");
-                    if( state === 2 ) list.sort("title", "desc");
-                },
+                onStateChange: (state) => sortList(state),
             },
         },
         { },
